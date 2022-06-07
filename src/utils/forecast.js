@@ -14,12 +14,14 @@ const forecast = (latitude, longitude, callback) => {
     } else if (body.error) {
       callback(body.error.info), undefined;
     } else {
+      console.log(body)
       callback(
         undefined,
         body.current.weather_descriptions[0] +
           " it is currently " +
           body.current.temperature +
-          " degrees out" +
+          " degrees out the humidity is " +
+          body.current.humidity +
           " there is a " +
           body.current.feelslike +
           "% chance of rain"
